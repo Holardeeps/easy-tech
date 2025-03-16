@@ -16,6 +16,10 @@ body {
     font-family: "Public Sans", sans-serif;
     line-height: 1.3;
 
+    @include breakpoint-up(large){
+        font-size: $font-lg;
+    }
+
     &.noscroll {
         overflow: hidden;
     }
@@ -23,6 +27,30 @@ body {
 
 h1, h2, h3 {
     margin-top: 0;
+    font-weight: 300;
+    font-size: 2.2rem;
+    color: $darkBlue;
+    line-height: 1.2;
+}
+ h1 {
+     margin-bottom: 1.5rem;
+
+     @include breakpoint-up(large) {
+         font-size: $font-xlg;
+     }
+ }
+h2 {
+    font-size: 1.9rem;
+    margin-bottom: 1.6rem;
+
+    @include breakpoint-up(medium){
+        font-size: 2.25rem;
+        margin-bottom: 2.25rem;
+    }
+}
+p {
+    line-height: 1.5;
+    margin-bottom: 2.25rem;
 }
 
 a, a:visited a:hover {
@@ -32,7 +60,53 @@ a, a:visited a:hover {
 // Spacing
 .container
 {
-    padding: 2.2rem 1.5rem;
+    max-width: 69.4rem;
+    margin: 0 auto;
+
+    &--pall{
+        padding-top: 4.375rem;
+        padding-bottom: 4.375rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+
+        @include breakpoint-up(large){
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+    }
+    &--py{
+        padding-top: 4.375rem;
+        padding-bottom: 4.375rem;
+
+        @include breakpoint-up(large) {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+    }
+    &--px{
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    &--pl{
+        padding-left: 1.5rem;
+    }
+    &--pr{
+        padding-right: 1.5rem;
+    }
+    &--pt{
+        padding-top: 4.375rem;
+
+        @include breakpoint-up(large) {
+            padding-top: 6rem;
+        }
+    }
+    &--pb{
+        padding-bottom: 4.37srem;
+
+        @include breakpoint-up(large) {
+            padding-bottom: 6rem;
+        }
+    }
 }
 
 // Flexbox

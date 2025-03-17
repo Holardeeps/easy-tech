@@ -1,0 +1,27 @@
+.footer {
+    background-color: $darkBlue;
+    color: $white;
+
+    a{
+        color: $white;
+    }
+
+    &__logo {
+    }
+    &__social {
+    }
+    &__links {
+
+        &.col1{
+        }
+        &.col2{
+        }
+    }
+    &__cta{
+
+        a.btn{
+        }
+    }
+    &__copyright {
+    }
+}

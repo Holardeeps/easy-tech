@@ -170,6 +170,7 @@ a, a:visited a:hover {
 }
 
 button, .btn {
+  position: relative;
   display: inline-block;
   padding: 0.7rem 2rem;
   border-radius: 50px;
@@ -181,8 +182,20 @@ button, .btn {
   font-size: 0.9rem;
   transition: 0.3s ease-in-out;
 }
-button:hover, .btn:hover {
-  opacity: 0.75;
+button::before, .btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+}
+button:hover::before, .btn:hover::before {
+  opacity: 1;
 }
 
 @media (max-width: 63.937em) {
@@ -468,6 +481,10 @@ button:hover, .btn:hover {
   line-height: 1.2;
   color: hsl(233, 26%, 24%);
   margin-bottom: 0.6rem;
+  transition: color 0.2s ease-in-out;
+}
+.article__title:hover {
+  color: hsl(136, 65%, 51%);
 }
 .article__description {
   font-size: 0.9rem;
@@ -476,7 +493,113 @@ button:hover, .btn:hover {
 .footer {
   background-color: hsl(233, 26%, 24%);
   color: hsl(0, 0%, 100%);
+  padding: 2.5rem;
+  text-align: center;
+}
+@media (min-width: 64em) {
+  .footer .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 3fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: "logo links1 links2 cta" "social links1 links2 copyright";
+    grid-gap: 1rem;
+    justify-items: start;
+  }
 }
 .footer a {
   color: hsl(0, 0%, 100%);
+}
+.footer__logo {
+  display: inline-block;
+}
+@media (max-width: 63.937em) {
+  .footer__logo {
+    margin-bottom: 1.87rem;
+  }
+}
+@media (min-width: 64em) {
+  .footer__logo {
+    grid-area: logo;
+  }
+}
+@media (max-width: 63.937em) {
+  .footer__social {
+    margin-bottom: 1.87rem;
+  }
+}
+@media (min-width: 64em) {
+  .footer__social {
+    grid-area: social;
+    align-self: end;
+  }
+}
+.footer__social a {
+  display: inline-block;
+  margin-right: 1rem;
+}
+.footer__social a svg path {
+  transition: fill 0.3s ease-in-out;
+}
+.footer__social a:hover svg path {
+  fill: hsl(136, 65%, 51%);
+}
+.footer__social a:last-child {
+  margin-right: 0;
+}
+.footer__links {
+  display: flex;
+  font-size: 0.95rem;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 64em) {
+  .footer__links {
+    align-items: start;
+    justify-content: space-between;
+  }
+}
+.footer__links a {
+  line-height: 2.2;
+  transition: color 0.3s ease-in-out;
+}
+.footer__links a:hover {
+  color: hsl(136, 65%, 51%);
+}
+@media (min-width: 64em) {
+  .footer__links.col1 {
+    grid-area: links1;
+  }
+}
+@media (max-width: 63.937em) {
+  .footer__links.col2 {
+    margin-bottom: 1.87rem;
+  }
+}
+@media (min-width: 64em) {
+  .footer__links.col2 {
+    grid-area: links2;
+  }
+}
+@media (min-width: 64em) {
+  .footer__cta {
+    grid-area: cta;
+    text-align: right;
+    justify-self: end;
+  }
+}
+@media (max-width: 63.937em) {
+  .footer__cta a.btn {
+    margin-bottom: 1.87rem;
+  }
+}
+.footer__copyright {
+  font-size: 0.95rem;
+  color: hsl(233, 8%, 62%);
+}
+@media (min-width: 64em) {
+  .footer__copyright {
+    grid-area: copyright;
+    align-self: end;
+    justify-self: end;
+  }
 }/*# sourceMappingURL=style.css.map */

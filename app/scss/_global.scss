@@ -128,6 +128,7 @@ a, a:visited a:hover {
 // Buttons
 
 button, .btn {
+    position: relative;
     display: inline-block;
     padding: .7rem 2rem;
     border-radius: 50px;
@@ -139,8 +140,19 @@ button, .btn {
     font-size: $font-sm;
     transition: .3s ease-in-out;
 
-    &:hover {
-        opacity: .75;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;right: 0;left: 0;bottom: 0;
+        background-color: rgba(255, 255, 255, 0.25);
+        border-radius: 50px;
+        opacity: 0;
+        transition:  .2s ease-in-out;
+    }
+
+
+    &:hover::before{
+        opacity: 1;
     }
 }
 
